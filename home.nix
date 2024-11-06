@@ -1,5 +1,59 @@
 { config, pkgs, ... }:
 
+let
+  emacsPackages = with pkgs.emacsPackages; [
+    amx
+    async
+    browse-kill-ring
+    cider
+    clojure-mode
+    conda
+    cypher-mode
+    company
+    company-maxima
+    company-quickhelp
+    counsel
+    delight
+    diff-hl
+    dockerfile-mode
+    doom-themes
+    doom-modeline
+    eldoc
+    elpa-mirror
+    emms
+    erlang
+    exec-path-from-shell
+    geiser-guile
+    go-mode
+    grip-mode
+    highlight-escape-sequences
+    highlight-indent-guides
+    ivy
+    lua-mode
+    magit
+    markdown-mode
+    maxima
+    nerd-icons-dired
+    nix-mode
+    undo-tree
+    org-ref
+    proof-general
+    racket-mode
+    rainbow-delimiters
+    rainbow-mode
+    rust-mode
+    switch-window
+    texfrag
+    tuareg
+    typescript-mode
+    utop
+    vterm
+    whitespace-cleanup-mode
+    windresize
+    yaml-mode
+    yasnippet
+  ];
+in
 {
   home = {
     stateVersion = "24.05";
@@ -54,7 +108,7 @@
       rust-analyzer
 
       typst
-    ];
+    ] ++ emacsPackages;
   };
 
   programs = {
